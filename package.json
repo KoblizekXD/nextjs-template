@@ -6,7 +6,7 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "biome check --write --no-errors-on-unmatched",
     "prepare": "husky"
   },
   "dependencies": {
@@ -24,8 +24,5 @@
     "tailwindcss": "^4.1.8",
     "typescript": "^5.8.3"
   },
-  "trustedDependencies": [
-    "@biomejs/biome",
-    "@tailwindcss/oxide"
-  ]
+  "trustedDependencies": ["@biomejs/biome", "@tailwindcss/oxide"]
 }
