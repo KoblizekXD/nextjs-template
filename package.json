@@ -8,8 +8,9 @@
     "start": "next start",
     "lint": "biome check --write --no-errors-on-unmatched",
     "prepare": "husky",
-    "dev:migrate": "DOTENV_CONFIG_PATH=.env.dev prisma migrate deploy",
-    "dev:dev-db": "prisma db push --accept-data-loss"
+    "dev:migrate": "dotenv -e .env.local -- prisma migrate deploy",
+    "dev:generate": "dotenv -e .env.local -- prisma migrate dev --create-only",
+    "dev:db-push": "dotenv -e .env.local -- prisma db push"
   },
   "dependencies": {
     "better-auth": "^1.2.8",
@@ -27,6 +28,7 @@
     "@types/node": "^20.17.57",
     "@types/react": "^19.1.6",
     "@types/react-dom": "^19.1.5",
+    "dotenv-cli": "^8.0.0",
     "husky": "^9.1.7",
     "prisma": "^6.9.0",
     "tailwindcss": "^4.1.8",
