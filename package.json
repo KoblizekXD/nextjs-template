@@ -7,12 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "biome check --write --no-errors-on-unmatched",
-    "prepare": "husky",
-    "dev:migrate": "dotenv -e .env.local -- prisma migrate deploy",
-    "dev:generate": "dotenv -e .env.local -- prisma migrate dev --create-only",
-    "dev:db-push": "dotenv -e .env.local -- prisma db push"
+    "prepare": "husky"
   },
   "dependencies": {
+    "@prisma/client": "6.9.0",
     "better-auth": "^1.2.8",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
