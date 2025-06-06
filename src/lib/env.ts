@@ -1,7 +1,9 @@
-import { z } from 'zod';
+import { z } from "zod";
 
 const envSchema = z.object({
-  NODE_ENV: z.enum(['development', 'test', 'production']).default('development'),
+  NODE_ENV: z
+    .enum(["development", "test", "production"])
+    .default("development"),
   DATABASE_URL: z.string().url(),
   BASE_URL: z.string().url(),
   PORT: z.string().regex(/^\d+$/).transform(Number).optional(),
@@ -15,8 +17,8 @@ export const validateEnv = () => {
   const parsedEnv = envSchema.safeParse(process.env);
 
   if (!parsedEnv.success) {
-    console.error('Invalid environment variables:', parsedEnv.error.format());
-    throw new Error('Environment validation failed');
+    console.error("Invalid environment variables:", parsedEnv.error.format());
+    throw new Error("Environment validation failed");
   }
 
   return parsedEnv.data;
