@@ -18,7 +18,7 @@ export const auth = betterAuth({
     enabled: true,
   },
   advanced: {
-    cookiePrefix: env.APP_NAME
+    cookiePrefix: env.APP_NAME,
   },
   /* 
   // Want to add additional fields to the user model that will appear in the session? This will add a `description` field to the user model.
