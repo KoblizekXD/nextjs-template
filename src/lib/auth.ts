@@ -1,10 +1,8 @@
-import { PrismaClient } from "@/generated/prisma";
 import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
 import { nextCookies } from "better-auth/next-js";
 import env from "./env";
-
-export const prisma = new PrismaClient();
+import prisma from "./prisma";
 
 export const auth = betterAuth({
   baseURL: env.BASE_URL,
