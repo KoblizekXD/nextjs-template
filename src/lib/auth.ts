@@ -1,8 +1,8 @@
 import { PrismaClient } from "@/generated/prisma";
 import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
-import env from "./env";
 import { nextCookies } from "better-auth/next-js";
+import env from "./env";
 
 export const prisma = new PrismaClient();
 
@@ -13,11 +13,12 @@ export const auth = betterAuth({
     provider: "postgresql",
     usePlural: true,
   }),
-  plugins: [
-    nextCookies()
-  ],
+  plugins: [nextCookies()],
   emailAndPassword: {
     enabled: true,
+  },
+  advanced: {
+    cookiePrefix: env.APP_NAME
   },
   /* 
   // Want to add additional fields to the user model that will appear in the session? This will add a `description` field to the user model.

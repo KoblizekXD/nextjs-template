@@ -1,15 +1,15 @@
 import { getSessionCookie } from "better-auth/cookies";
-import { NextResponse, type NextRequest } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 
 export async function middleware(request: NextRequest) {
   const cookies = getSessionCookie(request);
-  
-	if (!cookies) {
-		return NextResponse.redirect(new URL("/auth", request.url));
-	}
-	return NextResponse.next();
+
+  if (!cookies) {
+    return NextResponse.redirect(new URL("/sign-in", request.url));
+  }
+  return NextResponse.next();
 }
 
 export const config = {
-	matcher: ["/"],
+  matcher: ["/home"],
 };
